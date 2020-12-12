@@ -1,26 +1,21 @@
-package com.assignment2.gallery;
+package com.assignment2.gallery.client;
 
 import com.assignment2.gallery.entity.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
-
-@SpringBootApplication
-public class GalleryApplication {
-
-    private static final String URL = "http://127.0.0.1:62783";
+public class RestTest {
+    private static final String URL = "http://localhost:8080";
     private static final HttpHeaders headers = new HttpHeaders();
     private static final RestTemplate restTemplate = new RestTemplate();
     private static final HttpEntity<Object> headersEntity = new HttpEntity<>(headers);
 
-    public static void main(String[] args) {
-
+    public void testClient() {
         headers.setContentType(MediaType.APPLICATION_JSON);
 
         //add workers
@@ -48,10 +43,9 @@ public class GalleryApplication {
         addEntity("/visitor", mia);
         addEntity("/visitor", alex);
         addEntity("/visitor", jack);
-
     }
 
-    private static void addEntity(String path, Object entity) {
+    private void addEntity(String path, Object entity) {
         ObjectMapper objectMapper = new ObjectMapper();
         try {
             String entityJson = objectMapper.writeValueAsString(entity);

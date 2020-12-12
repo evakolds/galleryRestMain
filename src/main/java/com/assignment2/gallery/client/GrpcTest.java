@@ -12,7 +12,7 @@ import io.grpc.ManagedChannelBuilder;
 
 public class GrpcTest {
     private final String url = "127.0.0.1";
-    private final ManagedChannel channel = ManagedChannelBuilder.forAddress(url, 57810).usePlaintext().build();
+    private final ManagedChannel channel = ManagedChannelBuilder.forAddress(url, 65258).usePlaintext().build();
     ExhibitionServiceGrpc.ExhibitionServiceBlockingStub exhibitionStub = ExhibitionServiceGrpc.newBlockingStub(channel);
     VisitorServiceGrpc.VisitorServiceBlockingStub visitorStub = VisitorServiceGrpc.newBlockingStub(channel);
     WorkerServiceGrpc.WorkerServiceBlockingStub workerStub = WorkerServiceGrpc.newBlockingStub(channel);
